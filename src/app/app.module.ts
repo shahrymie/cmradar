@@ -7,9 +7,17 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { CcPage } from '../pages/cc/cc';
+import { GhgPage } from '../pages/ghg/ghg';
+import { EcPage } from '../pages/ec/ec';
+import { RcPage } from '../pages/rc/rc';
+import { AccPage } from '../pages/acc/acc';
+import { StatPage } from '../pages/stat/stat';
+import { AngularFireModule } from 'angularfire2';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { config } from './app.firebase';
 
 @NgModule({
   declarations: [
@@ -17,11 +25,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CcPage,
+    GhgPage,
+    EcPage,
+    RcPage,
+    AccPage,
+    StatPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +44,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CcPage,
+    GhgPage,
+    EcPage,
+    RcPage,
+    AccPage,
+    StatPage
   ],
   providers: [
     StatusBar,

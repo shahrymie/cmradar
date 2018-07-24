@@ -9,28 +9,56 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+    
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
- 
+  <ion-fab top right edge>
+    <button ion-fab color="primary" (click)="btnAdd()">
+      <ion-icon ios="ios-refresh" md="md-refresh" right top></ion-icon>
+    </button>
+  </ion-fab>
     <ion-grid>
  
       <ion-row>
-        <ion-col><input type="image" src="assets/ecology.png"/><p>
+        <ion-col><input type="image" src="assets/ecology.png" (click)="getCc()"/>
+          <p>
           Climate change risks and opportunities
         </p></ion-col>
-        <ion-col><input type="image" src="assets/factory.png"/></ion-col>
+        <ion-col><input type="image" src="assets/factory.png" (click)="getGhg()"/>
+          <p>
+              Carbon emissions accounting
+            </p></ion-col>
       </ion-row>
  
       <ion-row>
-          <ion-col><input type="image" src="assets/planet-earth.png"/></ion-col>
-          <ion-col><input type="image" src="assets/solar-panel.png"/></ion-col>
+          <ion-col>
+            <ion-col>
+                <input type="image" src="assets/planet-earth.png" (click)="getEc()"/>
+            </ion-col>
+            <ion-col>
+                <ion-badge item-end>260k</ion-badge>
+            </ion-col>
+            <p>
+                Energy consumption accounting
+              </p>
+            </ion-col>
+          <ion-col><input type="image" src="assets/solar-panel.png" (click)="getRc()"/>
+            <p>
+                Carbon reduction cost
+              </p></ion-col>
       </ion-row>
  
       <ion-row>
-          <ion-col><input type="image" src="assets/sprout.png"/></ion-col>
-          <ion-col><input type="image" src="assets/think.png"/></ion-col>
+          <ion-col><input type="image" src="assets/sprout.png" (click)="getAcc()"/>
+            <p>
+                Carbon emission accountability
+              </p></ion-col>
+          <ion-col><input type="image" src="assets/think.png" (click)="getStat()"/>
+            <p>
+                Analysis
+              </p></ion-col>
       </ion-row>
  
     </ion-grid>

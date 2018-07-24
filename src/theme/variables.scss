@@ -14,8 +14,7 @@ $colors: (
   dark:       #222
 );
 
-$toolbar-background-color: color($colors, primary);
-$list-md-header-color: color($colors, primary);
+$fab-md-background-color: color($colors, light);
 
 @import "ionic.ionicons";
 @import "roboto";
