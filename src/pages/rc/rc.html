@@ -14,10 +14,41 @@
 
 
 <ion-content padding>
-  <p>Assessment of GHG reduction plan and its progress</p>
-  <ion-grid>
-    <ion-row>
-      
-    </ion-row>
-  </ion-grid>
+    <ion-slides pager="true" parallax="true" padding>
+      <ion-slide>
+          <p>Assessment of GHG reduction plan and its progress</p>
+          <ion-grid>
+            <ion-row>
+                <ul type="disc">
+                    <li>Provide evidence of detailed plans or strategies to reduce GHG emissions</li>
+                  </ul>
+            </ion-row>
+            <ion-row>
+                <ul type="disc">
+                    <li>Specify the GHG emission reduction target level and target year</li>
+                  </ul>
+            </ion-row>
+          </ion-grid>
+      </ion-slide>
+      <ion-slide>
+          <ion-grid>
+            <ion-row>
+                <ul type="disc">
+                    <li>Describe the emission reduction and associated costs of savings to date because of the reduction plan.</li>
+                  </ul>
+            </ion-row>
+            <ion-row>
+                <ul type="disc">
+                    <li>Describe the future emission factored into capital expenditure planning</li>
+                  </ul>
+            </ion-row>
+          </ion-grid>
+          <ion-fab right bottom>
+              <button ion-fab color="primary" (click)="btnAdd()">
+                <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+              </button>
+            </ion-fab>
+      </ion-slide>
+    </ion-slides>
+  
 </ion-content>

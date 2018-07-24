@@ -22,11 +22,11 @@
     <ion-grid>
  
       <ion-row>
-        <ion-col><input type="image" src="assets/ecology.png" (click)="getCc()"/>
+        <ion-col><input type="image" src="assets/factory.png" (click)="getCc()"/>
           <p>
           Climate change risks and opportunities
         </p></ion-col>
-        <ion-col><input type="image" src="assets/factory.png" (click)="getGhg()"/>
+        <ion-col><input type="image" src="assets/think.png" (click)="getGhg()"/>
           <p>
               Carbon emissions accounting
             </p></ion-col>
@@ -55,12 +55,13 @@
             <p>
                 Carbon emission accountability
               </p></ion-col>
-          <ion-col><input type="image" src="assets/think.png" (click)="getStat()"/>
-            <p>
-                Analysis
-              </p></ion-col>
+          <ion-col></ion-col>
       </ion-row>
  
     </ion-grid>
- 
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="btnAdd()">
+        <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+      </button>
+    </ion-fab>
 </ion-content>
