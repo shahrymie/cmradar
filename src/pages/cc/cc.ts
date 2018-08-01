@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 /**
  * Generated class for the CcPage page.
@@ -15,7 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CcPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  data = {
+    cc1:"",
+    cc2:"",
+    cc:""
+  } 
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fdb: AngularFireDatabase) {
   }
 
   ionViewDidLoad() {

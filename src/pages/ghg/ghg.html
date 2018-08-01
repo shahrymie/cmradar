@@ -7,66 +7,47 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Carbon emission accounting</ion-title>
+    <ion-title text-wrap>Carbon emission accounting (GHG)</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding> 
-  <ion-slides pager="true" parallax="true" padding>
-    <ion-slide>
       <p>The methods used in accounting for GHG emissions</p>
-      <ion-grid> 
-        <ion-row>
-            <ul type="disc">
-                <li style="font-size: inherit">State the methodology used to calculate GHG emission (e.g. GHG proocol or ISO).</li>
-              </ul>          
-        </ion-row>
-        <ion-row>
-            <ul type="disc">
-                <li>Describe the external verification (whom and basis) on GHG emission quantity.</li>
-            </ul>     
-        </ion-row>
-        <ion-row>
-          <ul type="disc">
-              <li>Provide evidence of total GHG emissions (metric tonnes of CO2 emitted, cost associated)</li>
-          </ul>     
-      </ion-row>
-      </ion-grid>
-    </ion-slide>
-    <ion-slide>
-      <ion-grid> 
-        <ion-row>
-            <ul type="disc"> 
-                <li>State the disclosure of direct GHG emissions by Scopes - 1, 2, or 3.</li>
-              </ul>          
-        </ion-row>
-        <ion-row>
-            <ul type="disc">
-                <li>Provide evidence of disclosure of GHG emissions by sources ( e.g. coal, electricity, etc.).</li>
-            </ul>     
-        </ion-row>
-        <ion-row>
-          <ul type="disc">
-              <li>Provide evidence of GHG emission in comparison with previous years</li>
-          </ul>     
-      </ion-row>
-      </ion-grid>
-    </ion-slide>
-    <ion-slide>
-      <ion-grid> 
-        <ion-row>
-            <ul type="disc">
-                <li>Provide reasons for the changes in level of emission from year to year</li>
-              </ul>          
-        </ion-row>
-      </ion-grid>
+      <ion-list> 
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button>
+                <p>State the methodology used to calculate GHG emission (e.g. GHG protocol or ISO).</p>          
+        </ion-item>
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button>
+                <p>Describe the external verification (whom and basis) on GHG emission quantity.</p>     
+        </ion-item>
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button>
+              <p>Provide evidence of total GHG emissions (metric tonnes of CO2 emitted, cost associated)</p>     
+      </ion-item>
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button> 
+                <p>State the disclosure of direct GHG emissions by Scopes - 1, 2, or 3.</p>         
+        </ion-item>
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button>
+                <p>Provide evidence of disclosure of GHG emissions by sources ( e.g. coal, electricity, etc.).</p>     
+        </ion-item>
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button>
+              <p>Provide evidence of GHG emission in comparison with previous years</p>     
+        </ion-item> 
+        <ion-item text-wrap>
+            <button ion-button round large item-start color="high"> 0 </button>
+                <p>Provide reasons for the changes in level of emission from year to year</p>
+        </ion-item>
+      </ion-list>
       <ion-fab right bottom>
         <button ion-fab color="primary" (click)="btnAdd()">
-          <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+          <ion-icon ios="ios-done-all" md="md-done-all" color="dark"></ion-icon>
         </button>
       </ion-fab>
-    </ion-slide>
-  </ion-slides>
 </ion-content>

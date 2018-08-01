@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Carbon emission accountability</ion-title>
+    <ion-title text-wrap>Carbon emission accountability (ACC)</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,23 +15,21 @@
 
 <ion-content padding>
   <p>The monitoring mechanism used by the organisation with regards to climate change issues</p>
-  <ion-grid> 
-    <ion-row>
-        <ul type="disc">
-            <li>Provide evidence of specific board committee (or other executive body) that has the overall responsibility for 
-               actions related to climate change.
-            </li>
-          </ul>          
-    </ion-row>
-    <ion-row>
-        <ul type="disc">
-            <li>Describe the mechanism by which the board (or other executive body) reviews the company's progress regarding climate change</li>
-        </ul>     
-    </ion-row>
-  </ion-grid>
+  <ion-list> 
+    <ion-item text-wrap>
+        <button ion-button round large item-start color="high"> 0 </button>
+            <p>Provide evidence of specific board committee (or other executive body) that has the 
+              overall responsibility for actions related to climate change.</p>          
+    </ion-item>
+    <ion-item text-wrap>
+        <button ion-button round large item-start color="high"> 0 </button>
+            <p>Describe the mechanism by which the board (or other executive body) reviews the 
+              company's progress regarding climate change</p>     
+    </ion-item>
+  </ion-list>
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="btnAdd()">
-      <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+      <ion-icon ios="ios-done-all" md="md-done-all" color="dark"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>

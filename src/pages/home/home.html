@@ -1,7 +1,7 @@
 <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
   <div class="flb">
     <div class="Aligner-item Aligner-item--top"></div>
-    <img src="assets/logo.png">
+    <img src="assets/logo.jpg">
     <div class="Aligner-item Aligner-item--bottom"></div>
   </div>
 </div>
@@ -9,59 +9,58 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
-    
+    <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon ios="ios-refresh" md="md-refresh" color="dark"></ion-icon>
+          <ion-icon ios="ios-done-all" md="md-done-all" color="dark"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-fab top right edge>
-    <button ion-fab color="primary" (click)="btnAdd()">
-      <ion-icon ios="ios-refresh" md="md-refresh" right top></ion-icon>
-    </button>
-  </ion-fab>
-    <ion-grid>
- 
-      <ion-row>
-        <ion-col><input type="image" src="assets/factory.png" (click)="getCc()"/>
-          <p>
-          Climate change risks and opportunities
-        </p></ion-col>
-        <ion-col><input type="image" src="assets/think.png" (click)="getGhg()"/>
-          <p>
-              Carbon emissions accounting
-            </p></ion-col>
-      </ion-row>
- 
-      <ion-row>
-          <ion-col>
-            <ion-col>
-                <input type="image" src="assets/planet-earth.png" (click)="getEc()"/>
-            </ion-col>
-            <ion-col>
-                <ion-badge item-end>260k</ion-badge>
-            </ion-col>
-            <p>
-                Energy consumption accounting
-              </p>
-            </ion-col>
-          <ion-col><input type="image" src="assets/solar-panel.png" (click)="getRc()"/>
-            <p>
-                Carbon reduction cost
-              </p></ion-col>
-      </ion-row>
- 
-      <ion-row>
-          <ion-col><input type="image" src="assets/sprout.png" (click)="getAcc()"/>
-            <p>
-                Carbon emission accountability
-              </p></ion-col>
-          <ion-col></ion-col>
-      </ion-row>
- 
-    </ion-grid>
-    <ion-fab right bottom>
-      <button ion-fab color="primary" (click)="btnAdd()">
-        <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
-      </button>
-    </ion-fab>
+  
+  <ion-list>
+
+    <ion-item text-wrap>
+      <input type="image" src="assets/factory.png" (click)="getCc()" item-start/>
+      <h2>CC</h2>
+      <p>Climate change risks and opportunities</p> 
+      <h2>CM-Radar Score: </h2>
+      <button ion-button round large item-end color="high"> 0 </button>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <input type="image" src="assets/think.png" (click)="getGhg()" item-start/>
+      <h2>GHG</h2>
+      <p>Carbon emissions accounting</p>
+      <h2>CM-Radar Score: </h2>
+      <button ion-button round large item-end color="high"> 0 </button>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <input type="image" src="assets/planet-earth.png" (click)="getEc()" item-start/>
+      <h2>EC</h2>
+      <p>Energy consumption accounting</p>
+      <h2>CM-Radar Score: </h2>
+      <button ion-button round large item-end color="high"> 0 </button>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <input type="image" src="assets/solar-panel.png" (click)="getRc()" item-start/>
+      <h2>RC</h2>
+      <p>Carbon reduction and costs</p>
+      <h2>CM-Radar Score: </h2>
+      <button ion-button round large item-end color="high"> 0 </button>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <input type="image" src="assets/sprout.png" (click)="getAcc()" item-start/>
+      <h2>ACC</h2>
+      <p>Carbon emission accountability</p>
+      <h2>CM-Radar Score: </h2>
+      <button ion-button round large item-end color="high"> 0 </button>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

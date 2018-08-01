@@ -7,15 +7,18 @@ $app-direction: ltr;
 @import "ionic.globals";
 
 $colors: (
-  primary:    #236e0d,
-  secondary:  #85c20d,
-  danger:     #f53d3d,
+  primary:    #d9d8ba,
+  secondary:  #2b2600,
+  none:       #f53d3d,
+  low:        #d87d15,
+  medium:     #ddc808,
+  high:       #4cdd08,
   light:      #f4f4f4,
   dark:       #222
 );
 
-$fab-md-background-color: color($colors, light);
-
+$tabs-md-tab-icon-color-active: #2b2600;
+$toolbar-background: #d9d8ba;
 
 @import "ionic.ionicons";
 @import "roboto";

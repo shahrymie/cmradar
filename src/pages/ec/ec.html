@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Energy consumption accounting</ion-title>
+    <ion-title text-wrap>Energy consumption accounting (EC)</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,26 +15,23 @@
 
 <ion-content padding>
   <p>The methods used to assess energy consumption as a result of business operations and its associated disclosure.</p>
-  <ion-grid> 
-    <ion-row>
-        <ul type="disc">
-            <li>Provide evidence of total energy consumed in business operations (e.g. tera-joules or peta-joules).</li>
-          </ul>          
-    </ion-row>
-    <ion-row>
-        <ul type="disc">
-            <li>Provide evidence of energy used from renewable sources</li>
-        </ul>     
-    </ion-row>
-    <ion-row>
-      <ul type="disc">
-          <li>Describe the disclosure by type, facility, or segment.</li>
-      </ul>     
-  </ion-row>
-  </ion-grid>
+  <ion-list> 
+    <ion-item text-wrap>
+        <button ion-button round large item-start color="high"> 0 </button>
+            <p>Provide evidence of total energy consumed in business operations (e.g. tera-joules or peta-joules).</p>          
+    </ion-item>
+    <ion-item text-wrap>
+        <button ion-button round large item-start color="high"> 0 </button>
+            <p>Provide evidence of energy used from renewable sources</p>
+    </ion-item>
+    <ion-item text-wrap>
+        <button ion-button round large item-start color="high"> 0 </button>
+          <p>Describe the disclosure by type, facility, or segment.</p>     
+  </ion-item>
+  </ion-list>
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="btnAdd()">
-      <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+      <ion-icon ios="ios-done-all" md="md-done-all" color="dark"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>
