@@ -13,7 +13,6 @@ import { EcPage } from '../pages/ec/ec';
 import { RcPage } from '../pages/rc/rc';
 import { AccPage } from '../pages/acc/acc';
 import { StatPage } from '../pages/stat/stat';
-import { AngularFireModule } from 'angularfire2';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -35,8 +34,7 @@ import { config } from './app.firebase';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(config)
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
