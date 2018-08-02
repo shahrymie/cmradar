@@ -17,15 +17,15 @@
   <p>The methods used to assess energy consumption as a result of business operations and its associated disclosure.</p>
   <ion-list> 
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
             <p>Provide evidence of total energy consumed in business operations (e.g. tera-joules or peta-joules).</p>          
     </ion-item>
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
             <p>Provide evidence of energy used from renewable sources</p>
     </ion-item>
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
           <p>Describe the disclosure by type, facility, or segment.</p>     
   </ion-item>
   </ion-list>

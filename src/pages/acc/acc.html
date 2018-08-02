@@ -17,12 +17,12 @@
   <p>The monitoring mechanism used by the organisation with regards to climate change issues</p>
   <ion-list> 
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
             <p>Provide evidence of specific board committee (or other executive body) that has the 
               overall responsibility for actions related to climate change.</p>          
     </ion-item>
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
             <p>Describe the mechanism by which the board (or other executive body) reviews the 
               company's progress regarding climate change</p>     
     </ion-item>

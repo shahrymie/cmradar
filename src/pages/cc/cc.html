@@ -17,13 +17,13 @@
   <p>Assessment of risks and opportunities by the organisations on climate change</p>
   <ion-list> 
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+        <button id="1" #first ion-button round large item-start (click)="toggleNamedColor(first)" [color]="ionicNamedColor"></button>
         <p>Compute the risks (regulatory, physical or general) relating to climate
             change and actions taken or to be taken to manage the risks</p>     
                      
     </ion-item>
     <ion-item text-wrap>
-        <button ion-button round large item-start color="high"> 0 </button>
+      <button id="2" #second ion-button round large item-start (click)="toggleNamedColor(second)" [color]="ionicNamedColor"></button>
         <p>Calculate the current (and future) financial implications, business 
             implications, and opportunities of climate change.</p>   
     </ion-item>
