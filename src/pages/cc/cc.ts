@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
 
 /**
  * Generated class for the CcPage page.
@@ -19,30 +18,29 @@ export class CcPage {
   public value: number = 30;
   public ionicNamedColor = 'high';
   public selectedId = 0;
+  public btnColor: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fdb: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CcPage');
-  }
-
-  public toggleNamedColor(ionicButton): void{
+  toggleNamedColor(ionicButton) {
     if(ionicButton.value === 30 ) { 
-      ionicButton.ionicNamedColor = 'medium',
-      ionicButton.value = 20
+      ionicButton.ionicNamedColor = 'medium';
+      ionicButton.value = 20;
+      this.btnColor = '#ff0000';
     } else if(ionicButton.value === 20) { 
-      ionicButton.ionicNamedColor = 'low',
-      ionicButton.value = 10
+      ionicButton.ionicNamedColor = 'low';
+      ionicButton.value = 10;
+      this.btnColor = '#00ff00';
     } else if(ionicButton.value === 10) { 
-      ionicButton.ionicNamedColor = 'none',
-      ionicButton.value = 0
-    } else{
-      ionicButton.ionicNamedColor = 'high',
-      ionicButton.value = 30
+      ionicButton.ionicNamedColor = 'none';
+      ionicButton.value = 0;
+      this.btnColor = '#0000ff';
+    } else {
+      ionicButton.ionicNamedColor = 'high';
+      ionicButton.value = 30;
+      this.btnColor = '#000000';
     }
-    
   }
 
-  
 }
