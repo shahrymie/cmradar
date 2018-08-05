@@ -20,3 +20,17 @@ ion-header ion-icon.back-button-icon.icon {
     color: map-get($colors, dark);
 }
 
+.vertical-center {
+    .fixed-content,
+    .scroll-content {
+        display: flex;
+        align-items: center;
+
+        ion-list {
+            max-width: 300px; 
+            width:100%; 
+            margin: auto; 
+            text-align: center;
+        }
+    }
+}
