@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-wrap>Energy consumption accounting (EC)</ion-title>
+    <ion-title text-wrap padding>Energy consumption accounting (EC)</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,21 +17,21 @@
   <p>The methods used to assess energy consumption as a result of business operations and its associated disclosure.</p>
   <ion-list> 
     <ion-item text-wrap>
-      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
-            <p>Provide evidence of total energy consumed in business operations (e.g. tera-joules or peta-joules).</p>          
+      <button ion-button round large item-start #ec1 (click)="toggleNamedColor(ec1)" color="light"></button>
+            <p>Total energy consumed in business operations (e.g. tera-joules or peta-joules).</p>          
     </ion-item>
     <ion-item text-wrap>
-      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
-            <p>Provide evidence of energy used from renewable sources</p>
+      <button ion-button round large item-start #ec2 (click)="toggleNamedColor(ec2)" color="light"></button>
+            <p>Energy used from renewable sources.</p>
     </ion-item>
     <ion-item text-wrap>
-      <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
-          <p>Describe the disclosure by type, facility, or segment.</p>     
+      <button ion-button round large item-start #ec3 (click)="toggleNamedColor(ec3)" color="light"></button>
+          <p>Disclosure by type, facility, or segment.</p>     
   </ion-item>
   </ion-list>
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="btnAdd()">
-      <ion-icon ios="ios-done-all" md="md-done-all" color="dark"></ion-icon>
+      <ion-icon ios="ios-paper-plane" md="md-paper-plane" color="dark"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>

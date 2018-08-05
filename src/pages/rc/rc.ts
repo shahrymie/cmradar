@@ -25,19 +25,16 @@ export class RcPage {
     console.log('ionViewDidLoad RcPage');
   }
 
-  public toggleNamedColor(): void{
-    if(this.value === 30 ) { 
-      this.ionicNamedColor = 'medium',
-      this.value = 20
-    } else if(this.value === 20) { 
-      this.ionicNamedColor = 'low',
-      this.value = 10
-    } else if(this.value === 10) { 
-      this.ionicNamedColor = 'none',
-      this.value = 0
-    } else{
-      this.ionicNamedColor = 'high',
-      this.value = 30
+  public toggleNamedColor(ionicButton): void {
+    if(ionicButton._color === 'light') {
+      ionicButton.color = 'high',
+      ionicButton.value = 30
+    }else if(ionicButton._color === 'high') { 
+      ionicButton.color = 'none',
+      ionicButton.value = 0
+    }else{
+      ionicButton.color = 'high',
+      ionicButton.value = 30
     }
   }
 }
