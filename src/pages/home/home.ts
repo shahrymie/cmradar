@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { CcPage } from '../cc/cc';
 import { RcPage } from '../rc/rc';
 import { AccPage } from '../acc/acc';
@@ -15,13 +15,22 @@ import { GhgPage } from '../ghg/ghg';
 export class HomePage {
   
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
     
   }
 
   ionViewDidLoad() {
     
   }
+
+  info(){
+    const alert = this.alertCtrl.create({
+      subTitle: 'Select the icon to start evaluate your score',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  
 
   getCc(){
     this.navCtrl.push(CcPage);
