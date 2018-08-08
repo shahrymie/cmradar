@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { CcPage } from '../cc/cc';
 import { RcPage } from '../rc/rc';
 import { AccPage } from '../acc/acc';
@@ -13,20 +13,24 @@ import { GhgPage } from '../ghg/ghg';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  tabBarElement: any;
-  splash = true;
+  
 
-  constructor(public navCtrl: NavController) {
-    this.tabBarElement = document.querySelector('.tabbar');
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+    
   }
 
   ionViewDidLoad() {
-    this.tabBarElement.style.display = 'none';
-    setTimeout(() => {
-      this.splash = false;
-      this.tabBarElement.style.display = 'flex';
-    }, 4000);
+    
   }
+
+  info(){
+    const alert = this.alertCtrl.create({
+      subTitle: 'Select the icon to start evaluate your score',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  
 
   getCc(){
     this.navCtrl.push(CcPage);

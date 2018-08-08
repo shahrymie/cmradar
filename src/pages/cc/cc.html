@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-wrap>Climate change risks and opportunities (CC)</ion-title>
+    <ion-title text-wrap padding>Climate change risks and opportunities (CC)</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,20 +17,18 @@
   <p>Assessment of risks and opportunities by the organisations on climate change</p>
   <ion-list> 
     <ion-item text-wrap>
-        <button id="1" #first ion-button round large item-start (click)="toggleNamedColor(first)" [ngStyle]="{ 'background-color': btnColor }"></button>
-        <p>Compute the risks (regulatory, physical or general) relating to climate
-            change and actions taken or to be taken to manage the risks</p>     
+      <button ion-button round large item-start #cc1 (click)="toggleNamedColor(cc1)" color="light"></button>
+        <p>Actions taken or to be taken to manage the risks(regulatory, physical or general).</p>     
                      
     </ion-item>
     <ion-item text-wrap>
-      <button id="2" #second ion-button round large item-start (click)="toggleNamedColor(second)" [ngStyle]="{ 'background-color': btnColor }"></button>
-        <p>Calculate the current (and future) financial implications, business 
-            implications, and opportunities of climate change.</p>   
+      <button ion-button round large item-start #cc2 (click)="toggleNamedColor(cc2)" color="light"></button>
+        <p>Implication of risks on financial/business and opportunities of climate change. </p>   
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="btnAdd()">
-      <ion-icon ios="ios-done-all" md="md-done-all" color="dark"></ion-icon>
+      <ion-icon ios="ios-paper-plane" md="md-paper-plane" color="dark"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>
