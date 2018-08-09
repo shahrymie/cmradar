@@ -41,5 +41,9 @@ export class CcPage {
 
     for(var i=0 ; i<this.questionList.length ; i++)
       this.storage.set('cc' + (i + 1), this.questionList[i]);
+
+    this.storage.get('cc1').then((val) => {
+      console.log(val.score);
+    });
   }
 }
