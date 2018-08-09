@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Question } from "../../models/question";
 
 /**
  * Generated class for the RcPage page.
@@ -18,14 +19,11 @@ export class RcPage {
   public value: number = 30;
   public ionicNamedColor = 'high';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  questionList : Array<Question> = new Array();
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RcPage');
-  }
-
-  public toggleNamedColor(ionicButton): void {
+  public toggleNamedColor(ionicButton, qNo): void {
     if(ionicButton._color === 'light') {
       ionicButton.color = 'high',
       ionicButton.value = 30
@@ -36,5 +34,11 @@ export class RcPage {
       ionicButton.color = 'high',
       ionicButton.value = 30
     }
+
+    this.questionList[(qNo - 1)] = new Question('rc', qNo, ionicButton.value);
+  }
+
+  btnAdd() {
+    console.log(this.questionList);
   }
 }

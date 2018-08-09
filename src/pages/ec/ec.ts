@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Question } from "../../models/question";
 
 /**
  * Generated class for the EcPage page.
@@ -14,18 +15,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'ec.html',
 })
 export class EcPage {
-
   public value: number = 30;
   public ionicNamedColor = 'high';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  questionList : Array<Question> = new Array();
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EcPage');
-  }
-
-  public toggleNamedColor(ionicButton): void {
+  public toggleNamedColor(ionicButton, qNo): void {
     if(ionicButton._color === 'light') {
       ionicButton.color = 'high',
       ionicButton.value = 30
@@ -36,5 +33,11 @@ export class EcPage {
       ionicButton.color = 'high',
       ionicButton.value = 30
     }
+
+    this.questionList[(qNo - 1)] = new Question('ec', qNo, ionicButton.value);
+  }
+
+  btnAdd() {
+    console.log(this.questionList);
   }
 }

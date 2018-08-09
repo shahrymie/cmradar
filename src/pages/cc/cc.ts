@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Question } from "../../models/question";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the CcPage page.
@@ -14,24 +16,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'cc.html',
 })
 export class CcPage {
+  color = 'light';
+  questionList : Array<Question> = new Array();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CcPage');
-  }
-
-  public toggleNamedColor(ionicButton): void {
+  public toggleNamedColor(ionicButton, qNo): void {
     if(ionicButton._color === 'light') {
       ionicButton.color = 'high',
       ionicButton.value = 30
-    }else if(ionicButton._color === 'high') { 
+    } else if(ionicButton._color === 'high') {
       ionicButton.color = 'none',
       ionicButton.value = 0
-    }else{
+    } else {
       ionicButton.color = 'high',
       ionicButton.value = 30
     }
+
+    this.questionList[(qNo - 1)] = new Question('cc', qNo, ionicButton.value);
+  }
+
+  btnAdd() {
+    console.log(this.questionList);
+
+    for(var i=0 ; i<this.questionList.length ; i++)
+      this.storage.set('cc' + (i + 1), this.questionList[i]);
   }
 }
