@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
-import { Storage } from "@ionic/storage";
+import { Storage } from "@ionic/storage"; // utk pakai storage function
 
 /**
  * Generated class for the CcPage page.
@@ -16,8 +16,7 @@ import { Storage } from "@ionic/storage";
   templateUrl: 'cc.html',
 })
 export class CcPage {
-  color = 'light';
-  questionList : Array<Question> = new Array();
+  questionList : Array<Question> = new Array(); // simpan data question yg user jawab
 
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -33,14 +32,14 @@ export class CcPage {
       ionicButton.value = 30
     }
 
-    this.questionList[(qNo - 1)] = new Question('cc', qNo, ionicButton.value);
+    this.questionList[(qNo - 1)] = new Question('cc', qNo, ionicButton.value); // simpan question data yg user jawab
   }
 
   btnAdd() {
     console.log(this.questionList);
 
     for(var i=0 ; i<this.questionList.length ; i++)
-      this.storage.set('cc' + (i + 1), this.questionList[i]);
+      this.storage.set('cc' + (i + 1), this.questionList[i]); // simpan question data yg user jawab dlm internal db
 
     this.storage.get('cc1').then((val) => {
       console.log(val.score);
