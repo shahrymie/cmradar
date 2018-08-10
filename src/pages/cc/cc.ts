@@ -37,12 +37,6 @@ export class CcPage {
 
   btnAdd() {
     console.log(this.questionList);
-
-    for(var i=0 ; i<this.questionList.length ; i++)
-      this.storage.set('cc' + (i + 1), this.questionList[i]); // simpan question data yg user jawab dlm internal db
-
-    this.storage.get('cc1').then((val) => {
-      console.log(val.score);
-    });
+    this.storage.set('cc', this.questionList); // simpan question data yg user jawab dlm internal db
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the EcPage page.
@@ -20,7 +21,7 @@ export class EcPage {
   
   questionList : Array<Question> = new Array();
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
   public toggleNamedColor(ionicButton, qNo): void {
     if(ionicButton._color === 'light') {
@@ -39,5 +40,6 @@ export class EcPage {
 
   btnAdd() {
     console.log(this.questionList);
+    this.storage.set('ec', this.questionList);
   }
 }
