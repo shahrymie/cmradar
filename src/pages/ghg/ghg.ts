@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Question } from "../../models/question";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the GhgPage page.
@@ -18,14 +20,11 @@ export class GhgPage {
   public value: number = 30;
   public ionicNamedColor = 'high';
  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  questionList : Array<Question> = new Array();
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GhgPage');
-  }
+  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
-  public toggleNamedColor(ionicButton): void {
+  public toggleNamedColor(ionicButton, qNo): void {
     if(ionicButton._color === 'light') {
       ionicButton.color = 'high',
       ionicButton.value = 30
@@ -36,5 +35,12 @@ export class GhgPage {
       ionicButton.color = 'high',
       ionicButton.value = 30
     }
+
+    this.questionList[(qNo - 1)] = new Question('ghg', qNo, ionicButton.value);
+  }
+
+  btnAdd() {
+    console.log(this.questionList);
+    this.storage.set('ghg', this.questionList);
   }
 }

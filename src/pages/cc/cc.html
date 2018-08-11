@@ -12,20 +12,20 @@
 
 </ion-header>
 
-
 <ion-content padding>
   <p>Assessment of risks and opportunities by the organisations on climate change</p>
+
   <ion-list> 
     <ion-item text-wrap>
-      <button ion-button round large item-start #cc1 (click)="toggleNamedColor(cc1)" color="light"></button>
-        <p>Actions taken or to be taken to manage the risks(regulatory, physical or general).</p>     
-                     
+      <button ion-button round large item-start #cc1 (click)="toggleNamedColor(cc1, 1)" color="{{ color }}"></button>
+      <p>Actions taken or to be taken to manage the risks(regulatory, physical or general).</p>
     </ion-item>
     <ion-item text-wrap>
-      <button ion-button round large item-start #cc2 (click)="toggleNamedColor(cc2)" color="light"></button>
-        <p>Implication of risks on financial/business and opportunities of climate change. </p>   
+      <button ion-button round large item-start #cc2 (click)="toggleNamedColor(cc2, 2)" color="light"></button>
+        <p>Implication of risks on financial/business and opportunities of climate change. </p>
     </ion-item>
   </ion-list>
+
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="btnAdd()">
       <ion-icon ios="ios-paper-plane" md="md-paper-plane" color="dark"></ion-icon>

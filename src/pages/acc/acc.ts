@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Question } from "../../models/question";
+import { Storage } from "@ionic/storage";
 
 /**
  * Generated class for the AccPage page.
@@ -14,15 +16,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'acc.html',
 })
 export class AccPage {
+  questionList : Array<Question> = new Array();
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AccPage');
-  }
-
-  public toggleNamedColor(ionicButton): void {
+  public toggleNamedColor(ionicButton, qNo): void {
     if(ionicButton._color === 'light') {
       ionicButton.color = 'high',
       ionicButton.value = 30
@@ -33,5 +31,15 @@ export class AccPage {
       ionicButton.color = 'high',
       ionicButton.value = 30
     }
+
+    this.questionList[(qNo - 1)] = new Question('acc', qNo, ionicButton.value);
+  }
+
+  btnAdd() {
+    this.storage.set('acc', this.questionList);
+
+    this.storage.get('acc').then((val) => {
+      console.log(val[0].score);
+    });
   }
 }

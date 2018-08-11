@@ -17,19 +17,19 @@
     <p>Assessment of GHG reduction plan and its progress</p>
       <ion-list>       
             <ion-item text-wrap>
-              <button ion-button round large item-start #rc1 (click)="toggleNamedColor(rc1)" color="light"></button>
+              <button ion-button round large item-start #rc1 (click)="toggleNamedColor(rc1, 1)" color="light"></button>
                     <p>Detailed plans or strategies to reduce GHG emission.</p>
             </ion-item>
             <ion-item text-wrap>
-              <button ion-button round large item-start #rc2 (click)="toggleNamedColor(rc2)" color="light"></button>
+              <button ion-button round large item-start #rc2 (click)="toggleNamedColor(rc2, 2)" color="light"></button>
                     <p>GHG emission reduction target level and target year.</p>
             </ion-item>        
             <ion-item text-wrap>
-              <button ion-button round large item-start #rc3 (click)="toggleNamedColor(rc3)" color="light"></button>
+              <button ion-button round large item-start #rc3 (click)="toggleNamedColor(rc3, 3)" color="light"></button>
                     <p>Emission reduction and associated costs or savings to date.</p>
             </ion-item>
             <ion-item text-wrap>
-              <button ion-button round large item-start (click)="toggleNamedColor()" [color]="ionicNamedColor"></button>
+              <button ion-button round large item-start #rc4 (click)="toggleNamedColor(rc4, 4)" [color]="light"></button>
                     <p>Future emission factored into capital expenditure planning.</p>
             </ion-item>
             </ion-list>        
