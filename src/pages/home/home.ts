@@ -25,7 +25,8 @@ export class HomePage {
 
   info(){
     const alert = this.alertCtrl.create({
-      subTitle: 'Select the icon to start evaluate your score',
+      title: 'Getting Started',
+      message: '<p>Select the icon to start evaluating your score</p><p>Indicator:</p><p><div class="foo green"></div> Practiced</p><p><div class="foo grey"></div> Not Practiced</p>',
       buttons: ['OK']
     });
     alert.present();
