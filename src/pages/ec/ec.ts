@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
 import { Storage } from "@ionic/storage";
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the EcPage page.
@@ -41,5 +42,6 @@ export class EcPage {
   btnAdd() {
     console.log(this.questionList);
     this.storage.set('ec', this.questionList);
+    this.navCtrl.push(HomePage);
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
 import { Storage } from "@ionic/storage";
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the GhgPage page.
@@ -17,9 +18,6 @@ import { Storage } from "@ionic/storage";
 })
 export class GhgPage {
 
-  public value: number = 30;
-  public ionicNamedColor = 'high';
- 
   questionList : Array<Question> = new Array();
 
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
@@ -42,5 +40,6 @@ export class GhgPage {
   btnAdd() {
     console.log(this.questionList);
     this.storage.set('ghg', this.questionList);
+    this.navCtrl.push(HomePage);
   }
 }

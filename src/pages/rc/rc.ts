@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
 import { Storage } from "@ionic/storage";
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the RcPage page.
@@ -42,5 +43,6 @@ export class RcPage {
   btnAdd() {
     console.log(this.questionList);
     this.storage.set('rc', this.questionList);
+    this.navCtrl.push(HomePage);
   }
 }

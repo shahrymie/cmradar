@@ -6,6 +6,7 @@ import { AccPage } from '../acc/acc';
 import { StatPage } from '../stat/stat';
 import { EcPage } from '../ec/ec';
 import { GhgPage } from '../ghg/ghg';
+import { IonicStorageModule } from "@ionic/storage";
 
 
 @Component({
@@ -14,13 +15,19 @@ import { GhgPage } from '../ghg/ghg';
 })
 export class HomePage {
   
+  score: number;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-    
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage: Storage) {
+  
   }
 
   ionViewDidLoad() {
-    
+    if(this.score!==null){
+      this.storage.get('cc').then((val)=>{
+        this.score=val;
+      })
+    }else
+      this.score=0;
   }
 
   info(){
@@ -56,4 +63,5 @@ export class HomePage {
   getStat(){
     this.navCtrl.push(StatPage);
   }
+
 }
