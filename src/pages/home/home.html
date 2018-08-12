@@ -24,7 +24,7 @@
       <h2>CC</h2>
       <p>Climate change risks and opportunities</p> 
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> 0 </button>
+      <button ion-button round large item-end color="high"> {{this.load('ccSum')}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getGhg()">
@@ -32,7 +32,7 @@
       <h2>GHG</h2>
       <p>Carbon emissions accounting</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> 0 </button>
+      <button ion-button round large item-end color="high"> {{this.load('ghgSum')}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getEc()">
@@ -40,7 +40,7 @@
       <h2>EC</h2>
       <p>Energy consumption accounting</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> 0 </button>
+      <button ion-button round large item-end color="high"> {{this.load('ecSum')}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getRc()">
@@ -48,7 +48,7 @@
       <h2>RC</h2>
       <p>Carbon reduction and costs</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> {{score}} </button>
+      <button ion-button round large item-end color="high"> {{this.load('rcSum')}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getAcc()">
@@ -56,7 +56,7 @@
       <h2>ACC</h2>
       <p>Carbon emission accountability</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> 0 </button>
+      <button ion-button round large item-end color="high"> {{this.load('accSum')}} </button>
     </ion-item>
 
   </ion-list>

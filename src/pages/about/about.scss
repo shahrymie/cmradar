@@ -13,7 +13,7 @@
     background-color: #ffffff;
     height:100%;
     width:100%;
-    animation: pulse 1s linear forwards;
+    animation: pulse 4s linear forwards;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,13 @@
     0% {
       opacity:0;
     }
-    100% {
+    40% {
       opacity:1;
+    }
+    60% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
     }
   }

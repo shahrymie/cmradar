@@ -20,4 +20,5 @@ export class Question {
     public getCategory() : string { return this.category; }
     public getQNo() : number { return this.qNo; }
     public getScore() : number { return this.score; }
+
 }

@@ -15,17 +15,28 @@ import { Storage } from "@ionic/storage";
 })
 export class HomePage {
   
-  score: number;
+  score: number[];
 
   constructor(private storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
-    if(this.score!==null){
-      this.storage.get('ccSum').then((val)=>{
-        this.score=val;
-      })
-    }else
-      this.score=0;
+    /*this.score[0]=this.load('ccSum',0);
+    this.score[1]=this.load('ghgSum',1);
+    this.score[2]=this.load('ecSum',2);
+    this.score[3]=this.load('rcSum',3);
+    this.score[4]=this.load('accSum',4);*/
+    
+  }
+
+  load(id: string): number{
+    let s: number;
+    if(s!==null){
+      this.storage.get(id).then((val)=>{
+        return val;
+      });
+    }else{
+      return 0;
+    }
   }
 
   info(){

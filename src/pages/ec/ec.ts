@@ -40,8 +40,11 @@ export class EcPage {
   }
 
   btnAdd() {
-    console.log(this.questionList);
-    this.storage.set('ec', this.questionList);
+    var sum = 0;
+    for (var index = 0; index < this.questionList.length; index++) {
+      sum = sum + this.questionList[index].getScore();   
+    }
+    this.storage.set('ecSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(HomePage);
   }
 }

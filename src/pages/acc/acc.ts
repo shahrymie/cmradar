@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
 import { Storage } from "@ionic/storage";
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the AccPage page.
@@ -36,10 +37,11 @@ export class AccPage {
   }
 
   btnAdd() {
-    this.storage.set('acc', this.questionList);
-
-    this.storage.get('acc').then((val) => {
-      console.log(val[0].score);
-    });
+    var sum = 0;
+    for (var index = 0; index < this.questionList.length; index++) {
+      sum = sum + this.questionList[index].getScore();   
+    }
+    this.storage.set('accSum', sum); // simpan question data yg user jawab dlm internal db
+    this.navCtrl.push(HomePage);
   }
 }
