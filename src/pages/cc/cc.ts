@@ -43,10 +43,10 @@ export class CcPage {
     var sum = 0;
     for (var index = 0; index < this.questionList.length; index++) {
       sum = sum + this.questionList[index].getScore();   
-      }
+    }
     console.log(this.questionList);
     console.log(sum);
-    this.storage.set('cc', sum); // simpan question data yg user jawab dlm internal db
+    this.storage.set('ccSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(HomePage);
   }
 }
