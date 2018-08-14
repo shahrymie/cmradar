@@ -1,12 +1,14 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
+import { ChartsModule } from 'ng2-charts';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { MainPage } from '../pages/main/main';
 import { CcPage } from '../pages/cc/cc';
 import { GhgPage } from '../pages/ghg/ghg';
 import { EcPage } from '../pages/ec/ec';
@@ -14,18 +16,11 @@ import { RcPage } from '../pages/rc/rc';
 import { AccPage } from '../pages/acc/acc';
 import { StatPage } from '../pages/stat/stat';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { config } from './app.firebase';
-import { IonicStorageModule } from "@ionic/storage";
-
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage,
+    MainPage,
     CcPage,
     GhgPage,
     EcPage,
@@ -36,15 +31,14 @@ import { IonicStorageModule } from "@ionic/storage";
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage,
+    MainPage,
     CcPage,
     GhgPage,
     EcPage,
@@ -55,6 +49,7 @@ import { IonicStorageModule } from "@ionic/storage";
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

@@ -10,20 +10,30 @@ declare var google;
 })
 export class ContactPage {
 
+  sum: number[]=[0,0,0,0,0];
+
   constructor(public storage: Storage, public navCtrl: NavController) {
-    google.charts.setOnLoadCallback(this.drawChart);
+    
   }
 
-  ionViewWillEnter(){}
+  ionViewDidLoad(){
+    this.storage.get('pie').then((val)=>{
+      for(let i=0;i<val.length;i++){
+        this.sum[i]=Math.round(100/500*val[i]);
+        console.log(this.sum[i]);
+      }
+    });
+    google.charts.setOnLoadCallback(this.drawChart);
+  }
 
   drawChart(){
     var data = google.visualization.arrayToDataTable([
           ['Categories', 'Percentage'],
-          ['CC', 1],
-          ['GHG', 2],
-          ['EC', 3],
-          ['RC', 1],
-          ['ACC', 4]
+          ['CC', this.sum[0]],
+          ['GHG', this.sum[1]],
+          ['EC', this.sum[2]],
+          ['RC', this.sum[3]],
+          ['ACC', this.sum[4]]
         ]);
 
         // Set chart options

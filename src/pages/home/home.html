@@ -1,60 +1,37 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Main</ion-title>
-    <ion-buttons end>
-        <button ion-button icon-only (click)="info()">
-          <ion-icon ios="ios-information-circle" md="md-information-circle" margin ></ion-icon>
-        </button>
-        <button ion-button icon-only (click)="reset()">
-            <ion-icon ios="ios-trash" md="md-trash" color="dark" margin></ion-icon>
-          </button>
-      </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/cm-radar logo.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+  </div>
   
-  <ion-list>
-
-    <ion-item text-wrap (click)="getCc()">
-      <input type="image" src="assets/cc.png" item-start/>
-      <h2>CC</h2>
-      <p>Climate change risks and opportunities</p> 
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #cc round large item-end [color]="this.color[0]"> {{this.sum[0]}}% </button>
-    </ion-item>
-
-    <ion-item text-wrap (click)="getGhg()">
-      <input type="image" src="assets/ghg.png" item-start/>
-      <h2>GHG</h2>
-      <p>Carbon emissions accounting</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #ghg round large item-end [color]="this.color[1]"> {{this.sum[1]}}% </button>
-    </ion-item>
-
-    <ion-item text-wrap (click)="getEc()">
-      <input type="image" src="assets/ec.png" item-start/>
-      <h2>EC</h2>
-      <p>Energy consumption accounting</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button round #ec large item-end [color]="this.color[2]"> {{this.sum[2]}}% </button>
-    </ion-item>
-
-    <ion-item text-wrap (click)="getRc()">
-      <input type="image" src="assets/rc.png" item-start/>
-      <h2>RC</h2>
-      <p>Carbon reduction and costs</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #rc round large item-end [color]="this.color[3]"> {{this.sum[3]}}% </button>
-    </ion-item>
-
-    <ion-item text-wrap (click)="getAcc()">
-      <input type="image" src="assets/acc.png" item-start/>
-      <h2>ACC</h2>
-      <p>Carbon emission accountability</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #acc round large item-end [color]="this.color[4]"> {{this.sum[4]}}% </button>
-    </ion-item>
-
-  </ion-list>
-</ion-content>
+  <ion-header>
+    <ion-navbar>
+      <ion-title>
+        Home
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h2>Welcome to CM-Radar</h2>
+    <p>
+      CM-Radar(Carbon Management Radar) is a self-check tool developed 
+      to assess the level of carbon management and practices of organization.   
+    </p>
+    <p>
+      This tool aims to offer an indicator involving carbon management status
+    </p>
+    <p>
+      Result of the carbon management assessment will enable organizations:
+    </p>
+    <ul type="disc">
+      <li>To determine the level of of organizations practices on carbon 
+        management related issues</li>
+      <li>To enhance, align and improve their accounting practices for 
+        climate change</li>
+  </ul>
+  <ion-buttons center bottom>
+    <button ion-button round large (click)="begin()">Begin</button>
+  </ion-content>

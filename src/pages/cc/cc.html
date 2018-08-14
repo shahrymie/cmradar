@@ -17,18 +17,18 @@
 
   <ion-list> 
     <ion-item text-wrap>
-      <button ion-button round large item-start #cc1 (click)="toggleNamedColor(cc1, 1)" [color]="cc1.color"></button>
+      <button ion-button round large item-start #cc1 (click)="toggleNamedColor(cc1, 1)" [color]="this.color[0]"></button>
       <p>Actions taken or to be taken to manage the risks(regulatory, physical or general).</p>
     </ion-item>
     <ion-item text-wrap>
-      <button ion-button round large item-start #cc2 (click)="toggleNamedColor(cc2, 2)" [color]="cc2.color"></button>
+      <button ion-button round large item-start #cc2 (click)="toggleNamedColor(cc2, 2)" [color]="this.color[1]"></button>
         <p>Implication of risks on financial/business and opportunities of climate change. </p>
     </ion-item>
   </ion-list>
 
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="btnAdd()">
-      <ion-icon ios="ios-paper-plane" md="md-paper-plane" color="dark"></ion-icon>
+      <ion-icon name="paper-plane" color="dark"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>

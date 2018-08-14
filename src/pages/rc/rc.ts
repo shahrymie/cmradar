@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Question } from "../../models/question";
 import { Storage } from "@ionic/storage";
-import { HomePage } from '../home/home';
+import { MainPage } from '../main/main';
 
 /**
  * Generated class for the RcPage page.
@@ -18,26 +18,38 @@ import { HomePage } from '../home/home';
 })
 export class RcPage {
 
-  public value: number = 30;
-  public ionicNamedColor = 'high';
-  
   questionList : Array<Question> = new Array();
+  color= ['light','light','light','light'];
   
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
+  ionViewDidEnter(){
+    this.storage.get('rc').then((val)=>{
+      for(let i = 0; i<this.color.length; i++){
+        this.color[i]=val[i].color;
+        console.log(this.color[i]);
+      }
+    }).catch((error: any) => {
+    })
+  }
+
   public toggleNamedColor(ionicButton, qNo): void {
+    let color : string;
     if(ionicButton._color === 'light') {
       ionicButton.color = 'high',
+      color = 'high',
       ionicButton.value = 30
-    }else if(ionicButton._color === 'high') { 
+    } else if(ionicButton._color === 'high' ) {
       ionicButton.color = 'none',
+      color = 'none',
       ionicButton.value = 0
-    }else{
+    } else {
       ionicButton.color = 'high',
+      color = 'high',
       ionicButton.value = 30
     }
-
-    this.questionList[(qNo - 1)] = new Question('rc', qNo, ionicButton.value, ionicButton.color);
+    console.log(color);
+    this.questionList[(qNo - 1)] = new Question('rc', qNo, ionicButton.value, color); // simpan question data yg user jawab
   }
 
   btnAdd() {
@@ -47,6 +59,6 @@ export class RcPage {
     }
     this.storage.set('rc', this.questionList);
     this.storage.set('rcSum', sum); // simpan question data yg user jawab dlm internal db
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push(MainPage);
   }
 }

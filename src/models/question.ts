@@ -1,12 +1,12 @@
 export class Question {
     // attr
-    category: string="";
-    qNo: number=0;
-    score: number=0;
-    color: String="light";
+    category: string;
+    qNo: number;
+    score: number;
+    color: string;
 
     // constructor
-    constructor(category: string, qNo: number, score: number, color: String) {
+    constructor(category: string, qNo: number, score: number, color: string) {
         this.category = category;
         this.qNo = qNo;
         this.score = score;
@@ -17,7 +17,7 @@ export class Question {
     public setCategory(category: string) : void { this.category = category; }
     public setQNo(qNo: number) : void { this.qNo = qNo; }
     public setScore(score: number) : void { this.score = score; }
-    public setColor(color: String) : void { this.color = color; }
+    public setColor(color: string) : void { this.color = color; }
 
     // getter
     public getCategory() : string { return this.category; }

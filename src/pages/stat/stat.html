@@ -7,12 +7,19 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>stat</ion-title>
+    <ion-title>Report</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <div style="display: block">
+    <canvas baseChart
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
 </ion-content>
