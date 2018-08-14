@@ -64,8 +64,6 @@ export class MainPage {
       }else{
         this.color[i] = 'high';
       }
-      console.log(this.sum[i]);
-      console.log(this.color[i]);
     }      
   }
 
