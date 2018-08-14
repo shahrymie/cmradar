@@ -6,11 +6,8 @@
           <ion-icon ios="ios-information-circle" md="md-information-circle" margin ></ion-icon>
         </button>
         <button ion-button icon-only (click)="reset()">
-            <ion-icon ios="ios-refresh" md="md-refresh" color="dark" margin></ion-icon>
+            <ion-icon ios="ios-trash" md="md-trash" color="dark" margin></ion-icon>
           </button>
-          <button ion-button icon-only (click)="confirm()">
-              <ion-icon ios="ios-paper-plane" md="md-paper-plane" color="dark" 	margin></ion-icon>
-            </button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -24,7 +21,7 @@
       <h2>CC</h2>
       <p>Climate change risks and opportunities</p> 
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> {{this.load('ccSum')}} </button>
+      <button ion-button #cc round large item-end [color]="this.color[0]"> {{this.sum[0]}}% </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getGhg()">
@@ -32,7 +29,7 @@
       <h2>GHG</h2>
       <p>Carbon emissions accounting</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> {{this.load('ghgSum')}} </button>
+      <button ion-button #ghg round large item-end [color]="this.color[1]"> {{this.sum[1]}}% </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getEc()">
@@ -40,7 +37,7 @@
       <h2>EC</h2>
       <p>Energy consumption accounting</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> {{this.load('ecSum')}} </button>
+      <button ion-button round #ec large item-end [color]="this.color[2]"> {{this.sum[2]}}% </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getRc()">
@@ -48,7 +45,7 @@
       <h2>RC</h2>
       <p>Carbon reduction and costs</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> {{this.load('rcSum')}} </button>
+      <button ion-button #rc round large item-end [color]="this.color[3]"> {{this.sum[3]}}% </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getAcc()">
@@ -56,7 +53,7 @@
       <h2>ACC</h2>
       <p>Carbon emission accountability</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round large item-end color="high"> {{this.load('accSum')}} </button>
+      <button ion-button #acc round large item-end [color]="this.color[4]"> {{this.sum[4]}}% </button>
     </ion-item>
 
   </ion-list>

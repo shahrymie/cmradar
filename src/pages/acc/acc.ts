@@ -33,7 +33,7 @@ export class AccPage {
       ionicButton.value = 30
     }
 
-    this.questionList[(qNo - 1)] = new Question('acc', qNo, ionicButton.value);
+    this.questionList[(qNo - 1)] = new Question('acc', qNo, ionicButton.value, ionicButton.color);
   }
 
   btnAdd() {
@@ -41,6 +41,7 @@ export class AccPage {
     for (var index = 0; index < this.questionList.length; index++) {
       sum = sum + this.questionList[index].getScore();   
     }
+    this.storage.set('acc', this.questionList);
     this.storage.set('accSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(HomePage);
   }

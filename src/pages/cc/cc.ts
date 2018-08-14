@@ -18,8 +18,7 @@ import { HomePage } from '../home/home';
 })
 export class CcPage {
   questionList : Array<Question> = new Array(); // simpan data question yg user jawab
-  sum: number = 0;
-
+  
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
     
   }
@@ -36,7 +35,7 @@ export class CcPage {
       ionicButton.value = 30
     }
 
-    this.questionList[(qNo - 1)] = new Question('cc', qNo, ionicButton.value); // simpan question data yg user jawab
+    this.questionList[(qNo - 1)] = new Question('cc', qNo, ionicButton.value, ionicButton.color); // simpan question data yg user jawab
   }
 
   btnAdd() {
@@ -44,6 +43,7 @@ export class CcPage {
     for (var index = 0; index < this.questionList.length; index++) {
       sum = sum + this.questionList[index].getScore();   
     }
+    this.storage.set('cc', this.questionList);
     this.storage.set('ccSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(HomePage);
   }

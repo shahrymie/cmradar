@@ -15,29 +15,46 @@ import { Storage } from "@ionic/storage";
 })
 export class HomePage {
   
-  score: number[];
+  sum = [];
+  color = [];
 
-  constructor(private storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController) {}
-
-  ionViewDidLoad() {
-    /*this.score[0]=this.load('ccSum',0);
-    this.score[1]=this.load('ghgSum',1);
-    this.score[2]=this.load('ecSum',2);
-    this.score[3]=this.load('rcSum',3);
-    this.score[4]=this.load('accSum',4);*/
+  constructor(private storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController) {
     
   }
 
-  load(id: string): number{
-    let s: number;
-    if(s!==null){
-      this.storage.get(id).then((val)=>{
-        return val;
-      });
-    }else{
-      return 0;
-    }
+  ionViewDidLoad() {
+    this.storage.get('ccSum').then((val)=>{
+      this.sum[0]=Math.round(val/60*100);
+    });
+    this.storage.get('ghgSum').then((val)=>{
+      this.sum[1]=Math.round(val/270*100);
+    });
+    this.storage.get('ecSum').then((val)=>{
+      this.sum[2]=Math.round(val/90*100);
+    });
+    this.storage.get('rcSum').then((val)=>{
+      this.sum[3]=Math.round(val/120*100);
+    });
+    this.storage.get('accSum').then((val)=>{
+      this.sum[4]=Math.round(val/60*100);
+    });
   }
+
+  ionViewWillEnter(){
+    for(let i = 0; i < this.sum.length ; i++){
+      if(this.sum[i] < 50){
+        this.color[i] = 'low';
+      }else if(this.sum[i] < 80){
+        this.color[i] = 'medium';
+      }else{
+        this.color[i] = 'high';
+      }
+      console.log(this.sum[i]);
+      console.log(this.color[i]);
+    }        
+  }
+
+
 
   info(){
     const alert = this.alertCtrl.create({
@@ -48,7 +65,10 @@ export class HomePage {
     alert.present();
   }
   
-
+  reset(){
+      this.storage.clear();
+      this.navCtrl.push(HomePage);
+  }
   getCc(){
     this.navCtrl.push(CcPage);
   }
