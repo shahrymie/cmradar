@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { ChartsModule } from 'ng2-charts';
+import { Chart } from "chart.js";
 
 /**
  * Generated class for the StatPage page.
@@ -17,33 +17,81 @@ import { ChartsModule } from 'ng2-charts';
 })
 export class StatPage {
 
-  sum= [];
-  public doughnutChartLabels:string[] = ['Climate Change Risks and Opportunities (CC)',
-                                         'Carbon Emission Accounting (GHG)',
-                                         'Energy Consumption Accounting (EC)',
-                                         'Carbon Reduction and Costs (RC)',
-                                         'Carbon Emission Accountability (ACC)'];
-  public doughnutChartData:number[] = [this.sum[0], this.sum[1], this.sum[2], this.sum[3], this.sum[4]]/*[5,4,3,2,1]*/;
-  public doughnutChartType:string = 'doughnut';
+  @ViewChild('chartCanvas') chartCanvas;
+  
+  doughnutChart: any;
+  labels: string[] = new Array();
+  data: number[] = new Array();
+  bgColor: string[] = new Array();
+  borderColor: string[] = new Array();
 
-// events
-public chartClicked(e:any):void {
-  console.log(e);
-}
+  constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
-public chartHovered(e:any):void {
-  console.log(e);
-}
-  constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
+  ionViewDidLoad() {
+    this.initialize();
+    this.drawChart();
+    
+    $(window).resize();
+  }
+  
+  initialize() {
+    this.labels = [
+      'Climate Change Risks and Opportunities (CC)',
+      'Carbon Emission Accounting (GHG)',
+      'Energy Consumption Accounting (EC)',
+      'Carbon Reduction and Costs (RC)',
+      'Carbon Emission Accountability (ACC)'
+    ];
+    this.bgColor = [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)'
+    ];
+    this.borderColor = [
+      'rgba(255,99,132,1)',
+      'rgba(54, 162, 235, 1)',
+      'rgba(255, 206, 86, 1)',
+      'rgba(75, 192, 192, 1)',
+      'rgba(153, 102, 255, 1)'
+    ];
+
+    this.storage.get('pie').then((val) => {
+      for(let i=0 ; i<val.length ; i++)
+        this.data[i] = Math.round(100/500*val[i]);
+    });
+
+    console.log(this.data);
   }
 
-  ionViewDidLoad(){
-    this.storage.get('pie').then((val)=>{
-      for(let i=0;i<val.length;i++){
-        this.sum[i]=Math.round(100/500*val[i]);
-        console.log(this.sum[i]);
+  drawChart() {
+    this.doughnutChart = new Chart(this.chartCanvas.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels: this.labels,
+        datasets: [{
+          label: "percentage (%)",
+          data: this.data,
+          backgroundColor: this.bgColor,
+          borderColor: this.borderColor,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        animateRotate: true,
+        animateScale: true
       }
     });
+  }
+
+  // events
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
   }
 }
 

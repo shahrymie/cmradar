@@ -20,18 +20,22 @@ export class CcPage {
   questionList : Array<Question> = new Array(); // simpan data question yg user jawab
   color= ['light','light'];
 
-  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
-    
-  }
+  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewWillEnter(){
+    console.log("ionViewWillEnter: " + this.questionList);
+
     this.storage.get('cc').then((val)=>{
       for(let i = 0; i<this.color.length; i++){
         this.color[i]=val[i].color;
-        console.log(this.color[i]);
       }
-    }).catch((error: any) => {
-    })
+      
+      for(let i=0 ; i<val.length ; i++) {
+        this.questionList[i] = val[i];
+      }
+    }).catch((error: any) => {})
+
+    console.log("ionViewWillEnter 2: " + this.questionList);
   }
 
   public toggleNamedColor(ionicButton, qNo): void {
@@ -54,10 +58,16 @@ export class CcPage {
   }
 
   btnAdd() {
+    console.log("btnAdd: " + this.questionList[0]);
+
     var sum = 0;
-    for (var index = 0; index < this.questionList.length; index++) {
-      sum = sum + this.questionList[index].getScore();   
+    if(this.questionList != null) {
+      for (var index = 0; index < this.questionList.length; index++) {
+        console.log(this.questionList[index]);
+        sum = sum + this.questionList[index].getScore();
+      }
     }
+
     this.storage.set('cc', this.questionList);
     this.storage.set('ccSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(MainPage);

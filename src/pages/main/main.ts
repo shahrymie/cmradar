@@ -29,8 +29,7 @@ export class MainPage {
   pie = [];
   color = [];
 
-  constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-  }
+  constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
     this.storage.get('ccSum').then((val)=>{
@@ -87,7 +86,6 @@ export class MainPage {
       let pieVal = [];
       for(let i = 0; i< this.sum.length;i++){
         pieVal[i]=Math.round(500/totalLevel*this.sum[i]);
-        console.log(pieVal[i]);
       }
       this.storage.set("pie",pieVal);
       this.navCtrl.push(StatPage);
