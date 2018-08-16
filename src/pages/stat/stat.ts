@@ -30,8 +30,6 @@ export class StatPage {
   ionViewDidLoad() {
     this.initialize();
     this.drawChart();
-    
-    $(window).resize();
   }
   
   initialize() {
