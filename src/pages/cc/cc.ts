@@ -23,8 +23,6 @@ export class CcPage {
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewWillEnter(){
-    console.log("ionViewWillEnter: " + this.questionList);
-
     this.storage.get('cc').then((val)=>{
       for(let i = 0; i<this.color.length; i++){
         this.color[i]=val[i].color;
@@ -34,23 +32,18 @@ export class CcPage {
         this.questionList[i] = val[i];
       }
     }).catch((error: any) => {})
-
-    console.log("ionViewWillEnter 2: " + this.questionList);
   }
 
   public toggleNamedColor(ionicButton, qNo): void {
     let color : string;
     if(ionicButton._color === 'light') {
-      ionicButton.color = 'high',
-      color = 'high',
+      color = ionicButton.color = 'high',
       ionicButton.value = 30
     } else if(ionicButton._color === 'high' ) {
-      ionicButton.color = 'none',
-      color = 'none',
+      color = ionicButton.color = 'none',
       ionicButton.value = 0
     } else {
-      ionicButton.color = 'high',
-      color = 'high',
+      color = ionicButton.color = 'high',
       ionicButton.value = 30
     }
     
@@ -58,18 +51,19 @@ export class CcPage {
   }
 
   btnAdd() {
-    console.log("btnAdd: " + this.questionList[0]);
-
-    var sum = 0;
-    if(this.questionList != null) {
-      for (var index = 0; index < this.questionList.length; index++) {
+    let sum = 0;
+    try{
+      for (let index = 0; index < this.questionList.length; index++){ 
         console.log(this.questionList[index]);
         sum = sum + this.questionList[index].getScore();
       }
+      this.storage.set('cc', this.questionList);
+      this.storage.set('ccSum', sum);
+    }catch(error){
+      console.log(this.questionList);
+      this.storage.set('cc', null);
+      this.storage.set('ccSum', null);
     }
-
-    this.storage.set('cc', this.questionList);
-    this.storage.set('ccSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(MainPage);
   }
 }

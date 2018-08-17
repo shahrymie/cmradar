@@ -24,7 +24,8 @@
       <h2>CC</h2>
       <p>Climate change risks and opportunities</p> 
       <h2>CM-Radar Level: </h2>
-      <button ion-button #cc round large item-end [color]="this.color[0]"> {{this.sum[0]}}% </button>
+      <button ion-button #cc round large item-end [color]="Color(cc,0)">{{this.sum[0] === null? "": cc.value+"%"}}</button>
+      <ion-input *ngIf="this.sum[0]==='0'" type="text" value=""></ion-input>
     </ion-item>
 
     <ion-item text-wrap (click)="getGhg()">
@@ -32,7 +33,7 @@
       <h2>GHG</h2>
       <p>Carbon emissions accounting</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button #ghg round large item-end [color]="this.color[1]"> {{this.sum[1]}}% </button>
+      <button ion-button #ghg round large item-end [color]="Color(ghg,1)">{{this.sum[1] === null? "": ghg.value+"%"}}</button>
     </ion-item>
 
     <ion-item text-wrap (click)="getEc()">
@@ -40,7 +41,7 @@
       <h2>EC</h2>
       <p>Energy consumption accounting</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button round #ec large item-end [color]="this.color[2]"> {{this.sum[2]}}% </button>
+      <button ion-button round #ec large item-end [color]="Color(ec,2)">{{this.sum[2] === null? "": ec.value+"%"}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getRc()">
@@ -48,7 +49,7 @@
       <h2>RC</h2>
       <p>Carbon reduction and costs</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button #rc round large item-end [color]="this.color[3]"> {{this.sum[3]}}% </button>
+      <button ion-button #rc round large item-end [color]="Color(rc,3)">{{this.sum[3] === null? "": rc.value+"%"}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getAcc()">
@@ -56,7 +57,7 @@
       <h2>ACC</h2>
       <p>Carbon emission accountability</p>
       <h2>CM-Radar Level: </h2>
-      <button ion-button #acc round large item-end [color]="this.color[4]"> {{this.sum[4]}}% </button>
+      <button ion-button #acc round large item-end [color]="Color(acc,4)">{{this.sum[4] === null? "": acc.value+"%"}} </button>
     </ion-item>
 
   </ion-list>

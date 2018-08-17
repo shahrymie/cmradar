@@ -32,32 +32,32 @@ export class AccPage {
   }
 
   public toggleNamedColor(ionicButton, qNo): void {
-    let color: string;
+    let color : string;
     if(ionicButton._color === 'light') {
-      ionicButton.color = 'high',
-      color = 'high',
+      color = ionicButton.color = 'high',
       ionicButton.value = 30
     } else if(ionicButton._color === 'high' ) {
-      ionicButton.color = 'none',
-      color = 'none',
+      color = ionicButton.color = 'none',
       ionicButton.value = 0
     } else {
-      ionicButton.color = 'high',
-      color = 'high',
+      color = ionicButton.color = 'high',
       ionicButton.value = 30
     }
-    console.log(color);
     this.questionList[(qNo - 1)] = new Question('acc', qNo, ionicButton.value, color); // simpan question data yg user jawab
-    console.log(this.questionList);
   }
 
   btnAdd() {
-    var sum = 0;
-    for (var index = 0; index < this.questionList.length; index++) {
+    let sum = 0;
+    try{
+    for (let index = 0; index < this.questionList.length; index++) {
       sum = sum + this.questionList[index].getScore();   
     }
     this.storage.set('acc', this.questionList);
-    this.storage.set('accSum', sum); // simpan question data yg user jawab dlm internal db
+    this.storage.set('accSum', sum);
+  }catch(error){
+    this.storage.set('acc', null);
+    this.storage.set('accSum', null)
+  }
     this.navCtrl.push(MainPage);
   }
 }

@@ -8,6 +8,7 @@ import { AccPage } from '../acc/acc';
 import { StatPage } from '../stat/stat';
 import { EcPage } from '../ec/ec';
 import { GhgPage } from '../ghg/ghg';
+import { isUndefined } from 'ionic-angular/umd/util/util';
 
 
 
@@ -32,41 +33,37 @@ export class MainPage {
   constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
-    this.storage.get('ccSum').then((val)=>{
-      this.sum[0]=Math.round(val/60*100);
-      this.pie[0]=Math.round(100/500*this.sum[0]);
-    });
-    this.storage.get('ghgSum').then((val)=>{
-      this.sum[1]=Math.round(val/270*100);
-      this.pie[1]=Math.round(100/500*this.sum[1]);
-    });
-    this.storage.get('ecSum').then((val)=>{
-      this.sum[2]=Math.round(val/90*100);
-      this.pie[2]=Math.round(100/500*this.sum[2]);
-    });
-    this.storage.get('rcSum').then((val)=>{
-      this.sum[3]=Math.round(val/120*100);
-      this.pie[3]=Math.round(100/500*this.sum[3]);
-    });
-    this.storage.get('accSum').then((val)=>{
-      this.sum[4]=Math.round(val/60*100);
-      this.pie[4]=Math.round(100/500*this.sum[4]);
-    });
+    this.getPercent('ccSum',0,60);
+    this.getPercent('ghgSum',1,270);
+    this.getPercent('ecSum',2,90);
+    this.getPercent('rcSum',3,120);
+    this.getPercent('accSum',4,60);
   }
 
-  ionViewDidEnter(){
-    for(let i = 0; i < 5 ; i++){
-      if(this.sum[i] < 50){
-        this.color[i] = 'low';
-      }else if(this.sum[i] < 80){
-        this.color[i] = 'medium';
-      }else{
-        this.color[i] = 'high';
-      }
-    }      
+  getPercent(id,index,total){
+      this.storage.get(id).then((val)=>{
+        if(val===null){
+          this.sum[index]=null;
+        }else{
+        this.sum[index]=Math.round(val/total*100);
+        this.pie[index]=Math.round(100/500*this.sum[4]);
+        }
+      });
   }
 
-    
+  public Color(ionicButton, i): void {
+    ionicButton.value = this.sum[i];
+    if(ionicButton.value === null){
+      ionicButton.color = 'primary'
+    }else if(ionicButton.value < 50) {
+      ionicButton.color = 'low'
+    } else if(ionicButton.value < 80) {
+      ionicButton.color = 'medium'
+    } else {
+      ionicButton.color = 'high'
+    }
+  }
+  
     info(){
       const alert = this.alertCtrl.create({
         title: 'Getting Started',

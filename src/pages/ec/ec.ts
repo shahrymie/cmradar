@@ -36,30 +36,32 @@ export class EcPage {
   public toggleNamedColor(ionicButton, qNo): void {
     let color : string;
     if(ionicButton._color === 'light') {
-      ionicButton.color = 'high',
-      color = 'high',
+      color = ionicButton.color = 'high',
       ionicButton.value = 30
     } else if(ionicButton._color === 'high' ) {
-      ionicButton.color = 'none',
-      color = 'none',
+      color = ionicButton.color = 'none',
       ionicButton.value = 0
     } else {
-      ionicButton.color = 'high',
-      color = 'high',
+      color = ionicButton.color = 'high',
       ionicButton.value = 30
     }
     
     this.questionList[(qNo - 1)] = new Question('ec', qNo, ionicButton.value, color); // simpan question data yg user jawab
-    console.log(this.questionList);
   }
 
   btnAdd() {
-    var sum = 0;
-    for (var index = 0; index < this.questionList.length; index++) {
-      sum = sum + this.questionList[index].getScore();   
+    let sum = 0;
+    try{
+      for (let index = 0; index < this.questionList.length; index++) {
+        console.log(this.questionList[index]);
+        sum = sum + this.questionList[index].getScore();
+      }
+      this.storage.set('ce', this.questionList);
+      this.storage.set('ecSum', sum);
+    }catch(error){
+      this.storage.set('ec', null);
+      this.storage.set('ecSum', null);
     }
-    this.storage.set('ec', this.questionList);
-    this.storage.set('ecSum', sum); // simpan question data yg user jawab dlm internal db
     this.navCtrl.push(MainPage);
   }
 }
