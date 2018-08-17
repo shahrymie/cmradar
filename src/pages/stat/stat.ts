@@ -10,6 +10,8 @@ import { Chart } from "chart.js";
  * Ionic pages and navigation.
  */
 
+ declare var google;
+
 @IonicPage()
 @Component({
   selector: 'page-stat',
@@ -54,32 +56,26 @@ export class StatPage {
       'rgba(75, 192, 192, 1)',
       'rgba(153, 102, 255, 1)'
     ];
-
-    this.storage.get('pie').then((val) => {
-      for(let i=0 ; i<val.length ; i++)
-        this.data[i] = Math.round(100/500*val[i]);
-    });
-
-    console.log(this.data);
   }
 
   drawChart() {
-    this.doughnutChart = new Chart(this.chartCanvas.nativeElement, {
-      type: 'doughnut',
-      data: {
-        labels: this.labels,
-        datasets: [{
-          label: "percentage (%)",
-          data: this.data,
-          backgroundColor: this.bgColor,
-          borderColor: this.borderColor,
-          borderWidth: 1
-        }]
-      },
-      options: {
-        animateRotate: true,
-        animateScale: true
-      }
+    this.storage.get('pie').then((val) => {
+      var options = {
+        title: 'Statistics',
+        pieHole: 0.4,
+        chartArea: { left: 0, top: 50, width: "100%", height: "100%" }
+      };
+      var data = google.visualization.arrayToDataTable([
+        ['Categories', 'Percentage (%)'],
+        [ this.labels[0], val[0] ],
+        [ this.labels[1], val[1] ],
+        [ this.labels[2], val[2] ],
+        [ this.labels[3], val[3] ],
+        [ this.labels[4], val[4] ]
+      ]);
+      var chart = new google.visualization.PieChart(document.getElementById('chartDiv'));
+  
+      chart.draw(data, options);
     });
   }
 
