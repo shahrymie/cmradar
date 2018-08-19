@@ -48,3 +48,12 @@ ion-header ion-icon.back-button-icon.icon {
   .grey {
     background: #636568;
   }
+
+  .loading-wrapper {
+    height: 80%;
+    width: 90%;
+    padding: 0 !important;
+    max-height: 80% !important;
+    max-width: 90% !important;
+    justify-content: center;
+}

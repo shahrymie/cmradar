@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 
 import { CcPage } from '../cc/cc';
@@ -8,7 +8,6 @@ import { AccPage } from '../acc/acc';
 import { StatPage } from '../stat/stat';
 import { EcPage } from '../ec/ec';
 import { GhgPage } from '../ghg/ghg';
-import { isUndefined } from 'ionic-angular/umd/util/util';
 
 
 
@@ -26,19 +25,19 @@ import { isUndefined } from 'ionic-angular/umd/util/util';
 })
 export class MainPage {
 
-  sum = [];
+  sum = [null, null, null, null, null];
   pie = [];
-  color = [];
+  count = 0;
 
   constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
-    this.getPercent('ccSum',0,60);
-    this.getPercent('ghgSum',1,270);
-    this.getPercent('ecSum',2,90);
-    this.getPercent('rcSum',3,120);
-    this.getPercent('accSum',4,60);
-  }
+      this.getPercent('ccSum',0,60);
+      this.getPercent('ghgSum',1,210);
+      this.getPercent('ecSum',2,90);
+      this.getPercent('rcSum',3,120);
+      this.getPercent('accSum',4,60);
+  }  
 
   getPercent(id,index,total){
       this.storage.get(id).then((val)=>{
@@ -46,7 +45,8 @@ export class MainPage {
           this.sum[index]=null;
         }else{
         this.sum[index]=Math.round(val/total*100);
-        this.pie[index]=Math.round(100/500*this.sum[4]);
+        this.pie[index]=Math.round(100/500*this.sum[4])
+        this.count = this.count+1;
         }
       });
   }
@@ -75,16 +75,11 @@ export class MainPage {
     
     reset(){
         this.storage.clear();
-        this.navCtrl.push(MainPage);
+        this.navCtrl.setRoot(MainPage);
     }
   
     confirm(){
-      let totalLevel = this.sum[0]+this.sum[1]+this.sum[2]+this.sum[3]+this.sum[4];
-      let pieVal = [];
-      for(let i = 0; i< this.sum.length;i++){
-        pieVal[i]=Math.round(500/totalLevel*this.sum[i]);
-      }
-      this.storage.set("pie",pieVal);
+      this.storage.set("pie",this.sum);
       this.navCtrl.push(StatPage);
     }
   
@@ -111,4 +106,5 @@ export class MainPage {
     getStat(){
       this.navCtrl.push(StatPage, );
     }
+
 }

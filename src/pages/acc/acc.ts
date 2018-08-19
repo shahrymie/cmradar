@@ -58,6 +58,6 @@ export class AccPage {
     this.storage.set('acc', null);
     this.storage.set('accSum', null)
   }
-    this.navCtrl.push(MainPage);
+  this.navCtrl.setRoot(MainPage);
   }
 }

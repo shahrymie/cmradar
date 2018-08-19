@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { Chart } from "chart.js";
 
 /**
  * Generated class for the StatPage page.
@@ -26,12 +25,23 @@ export class StatPage {
   data: number[] = new Array();
   bgColor: string[] = new Array();
   borderColor: string[] = new Array();
+  totalLevel = 0;
 
   constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     this.initialize();
     this.drawChart();
+  }
+
+  public Color(ionicButton): void {
+    if(this.totalLevel < 50) {
+      ionicButton.color = 'low'
+    } else if(this.totalLevel < 80) {
+      ionicButton.color = 'medium'
+    } else {
+      ionicButton.color = 'high'
+    }
   }
   
   initialize() {
@@ -60,9 +70,10 @@ export class StatPage {
 
   drawChart() {
     this.storage.get('pie').then((val) => {
+      this.totalLevel = Math.round((val[0]+val[1]+val[2]+val[3]+val[4])/500*100);
       var options = {
         title: 'Statistics',
-        pieHole: 0.4,
+        pieHole: 0.0,
         chartArea: { left: 0, top: 50, width: "100%", height: "100%" }
       };
       var data = google.visualization.arrayToDataTable([

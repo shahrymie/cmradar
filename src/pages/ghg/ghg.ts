@@ -61,6 +61,6 @@ export class GhgPage {
       this.storage.set('ghg', null);
       this.storage.set('ghgSum', null);
     }
-    this.navCtrl.push(MainPage);
+    this.navCtrl.setRoot(MainPage);
   }
 }

@@ -35,7 +35,7 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #d9d8ba,
-  secondary:  #2cb40a,
+  secondary:  #228b22,
   none:       #636568,
   low:        #d81515,
   medium:     #ddc808,
@@ -50,8 +50,10 @@ $colors: (
 // iOS only Sass variables can go here
 
 $tabs-md-tab-icon-color-active: #2b2600;
-$toolbar-background: #d9d8ba;
-
+$toolbar-background: #228b22;
+$loading-md-spinner-color: color($colors, dark);
+$loading-md-max-height: 90%;
+$loading-md-max-width : 500px;
 
 // App Material Design Variables
 // --------------------------------------------------

@@ -26,8 +26,8 @@
     </ion-item>
   </ion-list>
 
-  <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="btnAdd()">
+  <ion-fab right bottom padding>
+    <button ion-fab color="secondary" (click)="btnAdd()" [disabled]="questionList.length === 2? false:true">
       <ion-icon name="paper-plane" color="dark"></ion-icon>
     </button>
   </ion-fab>

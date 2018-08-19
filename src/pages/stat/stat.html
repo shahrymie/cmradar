@@ -14,5 +14,17 @@
 
 
 <ion-content>
-  <div id="chartDiv" style="width: 90%"></div>
+  <ion-grid>
+
+    <ion-row><div id="chartDiv" style="width: 90%"></div></ion-row>
+    
+    <ion-row>
+      <ion-item text-wrap>
+        <input type="image" src="assets/icon.png" item-start/>
+        <h2>Cm-Radar Level: </h2>
+        <button ion-button #cm round large item-end [color]="Color(cm)">{{this.totalLevel}}</button>
+      </ion-item>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

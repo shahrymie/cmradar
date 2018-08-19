@@ -27,10 +27,6 @@ export class CcPage {
       for(let i = 0; i<this.color.length; i++){
         this.color[i]=val[i].color;
       }
-      
-      for(let i=0 ; i<val.length ; i++) {
-        this.questionList[i] = val[i];
-      }
     }).catch((error: any) => {})
   }
 
@@ -54,16 +50,14 @@ export class CcPage {
     let sum = 0;
     try{
       for (let index = 0; index < this.questionList.length; index++){ 
-        console.log(this.questionList[index]);
         sum = sum + this.questionList[index].getScore();
       }
       this.storage.set('cc', this.questionList);
       this.storage.set('ccSum', sum);
     }catch(error){
-      console.log(this.questionList);
       this.storage.set('cc', null);
       this.storage.set('ccSum', null);
     }
-    this.navCtrl.push(MainPage);
+    this.navCtrl.setRoot(MainPage);
   }
 }

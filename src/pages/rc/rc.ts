@@ -27,7 +27,6 @@ export class RcPage {
     this.storage.get('rc').then((val)=>{
       for(let i = 0; i<this.color.length; i++){
         this.color[i]=val[i].color;
-        console.log(this.color[i]);
       }
     }).catch((error: any) => {
     })
@@ -52,7 +51,6 @@ export class RcPage {
     let sum = 0;
     try{
       for (let index = 0; index < this.questionList.length; index++) {
-        console.log(this.questionList[index]);
         sum = sum + this.questionList[index].getScore();
       }
       this.storage.set('rc', this.questionList);
@@ -61,6 +59,6 @@ export class RcPage {
       this.storage.set('rc', null);
       this.storage.set('rcSum', null);
     }
-    this.navCtrl.push(MainPage);
+    this.navCtrl.setRoot(MainPage);
   }
 }

@@ -23,11 +23,10 @@ export class EcPage {
   
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidEnter(){
+  ionViewWillEnter(){
     this.storage.get('ec').then((val)=>{
       for(let i = 0; i<this.color.length; i++){
         this.color[i]=val[i].color;
-        console.log(this.color[i]);
       }
     }).catch((error: any) => {
     })
@@ -53,15 +52,14 @@ export class EcPage {
     let sum = 0;
     try{
       for (let index = 0; index < this.questionList.length; index++) {
-        console.log(this.questionList[index]);
         sum = sum + this.questionList[index].getScore();
       }
-      this.storage.set('ce', this.questionList);
+      this.storage.set('ec', this.questionList);
       this.storage.set('ecSum', sum);
     }catch(error){
       this.storage.set('ec', null);
       this.storage.set('ecSum', null);
     }
-    this.navCtrl.push(MainPage);
+    this.navCtrl.setRoot(MainPage);
   }
 }

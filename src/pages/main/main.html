@@ -3,13 +3,13 @@
     <ion-title>Main</ion-title>
     <ion-buttons end>
         <button ion-button icon-only (click)="info()">
-          <ion-icon ios="ios-information-circle" md="md-information-circle" margin ></ion-icon>
+          <ion-icon ios="ios-information-circle" md="md-information-circle" margin color="dark"></ion-icon>
         </button>
         <button ion-button icon-only (click)="reset()">
-            <ion-icon ios="ios-trash" md="md-trash" color="dark" margin></ion-icon>
+            <ion-icon ios="ios-trash" md="md-trash" margin color="dark"></ion-icon>
           </button>
-        <button ion-button icon-only (click)="confirm()">
-          <ion-icon name="pie" color="dark" margin></ion-icon>
+        <button ion-button icon-only (click)="confirm()" [disabled]="this.count === 5? false:true">
+          <ion-icon name="pie" margin color="dark"></ion-icon>
         </button>
       </ion-buttons>
   </ion-navbar>
@@ -22,42 +22,36 @@
     <ion-item text-wrap (click)="getCc()">
       <input type="image" src="assets/cc.png" item-start/>
       <h2>CC</h2>
-      <p>Climate change risks and opportunities</p> 
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #cc round large item-end [color]="Color(cc,0)">{{this.sum[0] === null? "": cc.value+"%"}}</button>
-      <ion-input *ngIf="this.sum[0]==='0'" type="text" value=""></ion-input>
+      <p>Climate change risks and opportunities</p>
+      <button ion-button #cc round large item-end [color]="Color(cc,0)">{{this.sum[0] === null? "": this.sum[0]+"%"}}</button>
     </ion-item>
 
     <ion-item text-wrap (click)="getGhg()">
       <input type="image" src="assets/ghg.png" item-start/>
       <h2>GHG</h2>
       <p>Carbon emissions accounting</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #ghg round large item-end [color]="Color(ghg,1)">{{this.sum[1] === null? "": ghg.value+"%"}}</button>
+      <button ion-button #ghg round large item-end [color]="Color(ghg,1)">{{this.sum[1] === null? "": this.sum[1]+"%"}}</button>
     </ion-item>
 
     <ion-item text-wrap (click)="getEc()">
       <input type="image" src="assets/ec.png" item-start/>
       <h2>EC</h2>
       <p>Energy consumption accounting</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button round #ec large item-end [color]="Color(ec,2)">{{this.sum[2] === null? "": ec.value+"%"}} </button>
+      <button ion-button round #ec large item-end [color]="Color(ec,2)">{{this.sum[2] === null? "": this.sum[2]+"%"}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getRc()">
       <input type="image" src="assets/rc.png" item-start/>
       <h2>RC</h2>
       <p>Carbon reduction and costs</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #rc round large item-end [color]="Color(rc,3)">{{this.sum[3] === null? "": rc.value+"%"}} </button>
+      <button ion-button #rc round large item-end [color]="Color(rc,3)">{{this.sum[3] === null? "": this.sum[3]+"%"}} </button>
     </ion-item>
 
     <ion-item text-wrap (click)="getAcc()">
       <input type="image" src="assets/acc.png" item-start/>
       <h2>ACC</h2>
       <p>Carbon emission accountability</p>
-      <h2>CM-Radar Level: </h2>
-      <button ion-button #acc round large item-end [color]="Color(acc,4)">{{this.sum[4] === null? "": acc.value+"%"}} </button>
+      <button ion-button #acc round large item-end [color]="Color(acc,4)">{{this.sum[4] === null? "": this.sum[4]+"%"}} </button>
     </ion-item>
 
   </ion-list>

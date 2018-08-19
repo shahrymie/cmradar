@@ -33,8 +33,8 @@
                     <p>Future emission factored into capital expenditure planning.</p>
             </ion-item>
             </ion-list>        
-          <ion-fab right bottom>
-              <button ion-fab color="primary" (click)="btnAdd()">
+          <ion-fab right bottom padding>
+              <button ion-fab color="secondary" (click)="btnAdd()" [disabled]="questionList.length === 4? false:true">
                 <ion-icon ios="ios-paper-plane" md="md-paper-plane" color="dark"></ion-icon>
               </button>
             </ion-fab>
